@@ -2,11 +2,12 @@
   Iterative in-place solution using two loops
 */
 function rotateImage(matrix) {
-  matrix.forEach(row => row.reverse());
+  matrix.forEach(row => row.reverse()); // [[2, 1], [4, 3]]
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < i; j++) {
       // array destructuring ftw!
       [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];
+      // i = 1, j = 0    4, 1 = 1, 4    [[2, 4], [1, 3]]
     }
   }
 
@@ -18,9 +19,10 @@ function rotateImage(matrix) {
   However, this is not an in-place solution since `map`
   returns copies of the mapped array
 */
+
 function functionalRotateImage(matrix) {
-  return matrix.map(m => m.reverse())[0]
-               .map((cv, i) => matrix.map((rv, j) => matrix[j][i]));
+  return matrix.map(m => m.reverse())[0] // [[2, 1], [4, 3]] 
+   /* [2, 1] */ .map((cv, i) => matrix.map((rv, j) => matrix[j][i])); // [[2, 4], [1, 3]]
 }
 
 /* Some console.log tests */
