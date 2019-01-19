@@ -4,7 +4,7 @@
 
   O(n) runtime with O(n) space
 */
-function integerPairs(arr, k) {
+function integerPairsOne(arr, k) {
   // Use a hash to store key-value pairs of numbers
   const hash = {};
   // Loop through the arr
@@ -28,7 +28,7 @@ function integerPairs(arr, k) {
   O(n log n) runtime due to the sorting
   with O(1) space
 */
-function integerPairs(arr, k) {
+function integerPairsTwo(arr, k) {
   // sort the input array in-place
   arr.sort((x, y) => x - y);
   // initialize indices to track both ends of the array
@@ -52,8 +52,8 @@ function integerPairs(arr, k) {
 }
 
 /* Some console.log tests */
-integerPairs([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11);  // should print '6 5', '7 4', '8 3', '9 2', '10 1'
+integerPairsOne([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 11);  // should print '6 5', '7 4', '8 3', '9 2', '10 1'
 console.log();
-integerPairs([5, 5, 4], 12);                        // should not print anything
+integerPairsTwo([5, 5, 4], 12);                        // should not print anything
 console.log();
-integerPairs([99, 45, 38, 1, 68, 78], 100);         // should print '1 99'
+integerPairsOne([99, 45, 38, 1, 68, 78], 100);         // should print '1 99'
